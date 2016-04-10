@@ -10,11 +10,11 @@
    <p>
    <h1>Chain Store Management System</h1>
    <h3></h3>
-   </p>   
+   </p>
     <ul>
-      <li><a class="active" href="admin.php">Admin</a></li>
+      <li><a class="active" href="index.php">Admin</a></li>
       <li><a href="store.php">Store Details</a></li>
       <li><a href="profit.php">Total Profit</a></li>
-      <li style="float:right"><a class="active1" href="logout.php">Logout</a></li>
+      <li style="float:right"><a class="active1" href="../logout.php">Logout</a></li>
     </ul>
 </body>
