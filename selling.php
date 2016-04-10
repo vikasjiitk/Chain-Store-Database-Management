@@ -17,4 +17,9 @@
       <li><a class="active"a href="selling.php">Selling Details</a></li>
       <li style="float:right"><a class="active1" href="logout.php">Logout</a></li>
     </ul>
+     <form action = "" method = "post">
+     <input type = "text" name = "itemId" placeholder="Item ID">
+     <input type = "text" name = "date" placeholder="Date">
+     <button type="submit">Submit</button>
+     </form>
 </body>
