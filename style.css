@@ -36,7 +36,7 @@ button{
   cursor: pointer;
 }
 p.warning{
-  background-color: red;
+  background-color: yellow;
   font-size: 20px;
 }
 ul {

@@ -5,22 +5,13 @@ if(!$_SESSION['loggedin'])
 header("Location:../login.php");
 exit;
 }
-?>>
+?>
 <title>Receptionst</title>
 <head>
   <link rel="stylesheet" type="text/css" href="../style.css">
 <style>
 </style>
 </head>
-<?php
-session_start();
-// echo $_SESSION['loggedin'];
-if(!$_SESSION['loggedin'])
-{
-header("Location:../login.php");
-exit;
-}
-?>
 <body>
    <p>
    <h1>Chain Store Management System</h1>
@@ -42,18 +33,26 @@ exit;
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   $link = mysqli_connect('localhost','pma','','chainStores');
   $user = $_SESSION['loggedin'];
-  $query1 = "SELECT `storeId` from `Owners` where `ownerUsername` = '$user'";
+  $query1 = "SELECT `storeId` from `Rcpts` where `recUser` = '$user'";
   $query_run1 = mysqli_query($link, $query1);
   $store = mysqli_fetch_assoc($query_run1);
   // echo $store['storeId'];
   $Store = $store['storeId'];
-  $model = $_POST['modelid'];
-  $query2 = "SELECT * from `Item` where `modelId` = '$model' and `storeId` = '$Store'";
+  $model = $_POST['model'];
+  $item = $_POST['itemId'];
+  $query2 = "SELECT * from `Model` where `modelId` = '$model'";
   $query_run2 = mysqli_query($link, $query2);
   $items = mysqli_num_rows($query_run2);
-  $no = $items;
-  echo '<p>No. of items with model id '.$model.' : '.$no;
-
+  if($items != 0){
+    $query3 = "Insert into `Item` values(".$item.",".$Store.",".$model.")";
+    if($query_run3 = mysqli_query($link, $query3)){
+      echo '<p>Data Inserted Successfully</p>';
+    }
+    else { echo '<p class="warning">Insertion failed</p>';}
+  }
+  else{
+    echo '<p class="warning">Such Model Id does not exist.</p>';
+  }
 }
  ?>
 </body>

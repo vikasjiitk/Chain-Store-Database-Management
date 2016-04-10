@@ -5,22 +5,13 @@ if(!$_SESSION['loggedin'])
 header("Location:../login.php");
 exit;
 }
-?>>
+?>
 <title>Receptionst</title>
 <head>
   <link rel="stylesheet" type="text/css" href="../style.css">
 <style>
 </style>
 </head>
-<?php
-session_start();
-// echo $_SESSION['loggedin'];
-if(!$_SESSION['loggedin'])
-{
-header("Location:../login.php");
-exit;
-}
-?>
 <body>
    <p>
    <h1>Chain Store Management System</h1>
