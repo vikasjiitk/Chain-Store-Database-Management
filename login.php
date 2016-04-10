@@ -25,7 +25,7 @@
      if($query_run=mysqli_query($link, $query)){
        $_SESSION['loggedin'] = $user;
        if(mysqli_fetch_assoc($query_run)){
-         header('Location: owner.php');
+         header('Location: owner/index.php');
        }
        else{
          echo "<p class='warning'>Incorrrect Username Password</p>";
