@@ -26,13 +26,17 @@ exit;
       <li style="float:right"><a class="active1" href="../logout.php">Logout</a></li>
    </ul>
    <ul class = "vertical">
-    <li class = "vertical"><a href="addstore.php">Add Store</a></li>
-    <li class = "vertical"><a class = "active3" href="deletestore.php">Delete Store</a></li>
-    <li class = "vertical"><a href="storedetails.php">Store Details</a></li>
+    <li class = "vertical"><a class = "active3" href="addowner.php">Add Owner</a></li>
+    <li class = "vertical"><a href="deleteowner.php">Delete Owner</a></li>
+    <li class = "vertical"><a href="ownerdetails.php">Owner Details</a></li>
   </ul>
-   <h3>Delete a Store</h3>
+   <h3>Add a Owner</h3>
      <form action = "" method = "post">
+     <input type = "text" name = "ownerId" placeholder="Owner ID">
+     <input type = "text" name = "ownerName" placeholder="Owner Name">
      <input type = "text" name = "storeId" placeholder="Store ID">
-     <button type="submit">DELETE</button>
+     <input type = "text" name = "ownerUsername" placeholder="Owner Username">
+     <input type = "text" name = "ownerPass" placeholder="Owner Password">
+     <button type="submit">ADD</button>
      </form>
 </body>
