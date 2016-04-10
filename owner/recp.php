@@ -17,20 +17,20 @@ exit;
 <body>
   <p> Hello <?php echo $_SESSION['loggedin']; ?>!</p>
   <ul>
-    <li><a class="active" href="index.php">Store Stock</a></li>
+    <li><a href="index.php">Store Stock</a></li>
     <li><a href="profit.php">Profit</a></li>
-    <li><a href="recp.php">Receptionists</a></li>
+    <li><a class="active" href="recp.php">Receptionists</a></li>
     <li style="float:right"><a class="active" href="../logout.php">Logout</a></li>
   </ul>
-  <p>Search your store stock:</p>
+  <!-- <p>Search your store stock:</p>
   <ul class = "vertical">
   <li class = "vertical"><a href="index.php">By Model Id</a></li>
   <li class = "vertical"><a  href="itemsearch.php">By Item Id</a></li>
   <li class = "vertical"><a class="active" href="fullstock.php"> See full stock </a></li>
-</ul>
+</ul> -->
 <p><br/><br/><br/><br/></p>
 <form action="" method="post">
-  <button type="submit">See full stock</button>
+  <button type="submit">See list of Receptionists at your store</button>
 </form>
 <?php
 if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -42,22 +42,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   // echo $store['storeId'];
   $Store = $store['storeId'];
   // $item = $_POST['itemid'];
-  $query2 = "SELECT `modelId`, count(*) from `Item` where `storeId` = '$Store' group by `modelId`";
+  $query2 = "SELECT * from `Rcpts` where `storeId` = '$Store'";
   $query_run2 = mysqli_query($link, $query2);
   $items = mysqli_num_rows($query_run2);
   if($items != 0){
     $i = 1;
   while($data = mysqli_fetch_assoc($query_run2)){
-    $model = $data['modelId'];
-    $count = $data['count(*)'];
-    $query3 = "SELECT * FROM `Model` where `modelId` = '$model'";
-    $query_run3 = mysqli_query($link, $query3);
-    $mrp = mysqli_fetch_assoc($query_run3);
-    echo '('.$i.') Model Id: '.$model.' ---- no. of items: '.$count;
+    $rid = $data['recId'];
+    $rname = $data['recName'];
+    echo '('.$i.') Receptionist Id: '.$rid.' ---- Receptionist Name: '.$rname;
     $i = $i+1;
   }
   }
-  else{echo 'nothing found';}
+  else{echo 'No Receptionist found';}
 
 }
  ?>
