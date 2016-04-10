@@ -17,14 +17,17 @@
       <li><a class="active" href="profit.php">Total Profit</a></li>
       <li style="float:right"><a class="active1" href="logout.php">Logout</a></li>
     </ul>
-   <form action = "storeprofit.php" method = "post">
+     <form action = "storeprofit.php" method = "post">
      <button type="submit">Store Profit</button>
-   </form>
-   <form action = "dayprofit.php" method = "post">
-     <button type="submit">Day Wise Total Profit</button>
    </form>
    <form action = "daystoreprofit.php" method = "post">
      <button type="submit">Day Wise Store Profit</button>
    </form>
+
+   <h3>Total Day Profit</h3>
+     <form action = "" method = "post">
+     <input type = "text" name = "Date" placeholder="Date">
+     <button type="submit">Submit</button>
+     </form>
    
 </body>
