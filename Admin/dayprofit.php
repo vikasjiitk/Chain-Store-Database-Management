@@ -10,12 +10,12 @@
    <p>
    <h1>Chain Store Management System</h1>
    <h3></h3>
-   </p>   
+   </p>
     <ul>
-      <li><a href="admin.php">Admin</a></li>
+      <li><a href="index.php">Admin</a></li>
       <li><a href="store.php">Store Details</a></li>
       <li><a class="active" href="profit.php">Total Profit</a></li>
-      <li style="float:right"><a class="active1" href="logout.php">Logout</a></li>
+      <li style="float:right"><a class="active1" href="../logout.php">Logout</a></li>
     </ul>
     <ul class = "vertical">
   <li class = "vertical"><a href="storeprofit.php">Store Profit</a></li>
@@ -27,5 +27,5 @@
      <input type = "text" name = "Date" placeholder="Date">
      <button type="submit">Submit</button>
      </form>
-   
+
 </body>
