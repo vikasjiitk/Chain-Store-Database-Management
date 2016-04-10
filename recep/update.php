@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<?php session_start();?>
+<?php session_start();
+if(!$_SESSION['loggedin'])
+{
+header("Location:../login.php");
+exit;
+}
+?>>
 <title>Receptionst</title>
 <head>
   <link rel="stylesheet" type="text/css" href="../style.css">
@@ -22,4 +28,14 @@
      <input type = "text" name = "model" placeholder="Model">
      <button type="submit">Update</button>
    </form>
+   <?php
+   $link = mysqli_connect('localhost','pma','','chainStores');
+   $user = $_SESSION['loggedin'];
+   $item = $_POST['itemId']
+   $model = $_POST['model']
+   $query = "SELECT * from `Rcpts` where `recUser` = '$user'";
+   $query_run = mysqli_query($link, $query);
+   $data = mysqli_fetch_assoc($query_run);
+   echo '<p><hr> Receptionist Name - '.$data['recName'].'<br/> <hr> Work Store Id - '.$data['storeId'].'</p>'
+    ?>
 </body>
