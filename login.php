@@ -20,7 +20,7 @@
    if($_SERVER["REQUEST_METHOD"] == "POST"){
      $user = $_POST["user"];
      $pass = $_POST["pass"];
-     $link = mysqli_connect('localhost','root','cs315','chainStores');
+     $link = mysqli_connect('localhost','pma','','chainStores');
      $query = "SELECT `ownerUsername` from `Owners` where `ownerUsername` = '$user' and `OwnerPass` = '$pass'";
      if($query_run=mysqli_query($link, $query)){
        $_SESSION['loggedin'] = $user;

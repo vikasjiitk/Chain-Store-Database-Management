@@ -34,7 +34,7 @@ exit;
 </form>
 <?php
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-  $link = mysqli_connect('localhost','root','cs315','chainStores');
+  $link = mysqli_connect('localhost','pma','','chainStores');
   $user = $_SESSION['loggedin'];
   $query1 = "SELECT `storeId` from `Owners` where `ownerUsername` = '$user'";
   $query_run1 = mysqli_query($link, $query1);
