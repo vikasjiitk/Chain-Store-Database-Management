@@ -21,7 +21,7 @@ exit;
       <li><a href="index.php">Admin</a></li>
       <li><a class="active" href="store.php">Store</a></li>
       <li><a href="owner.php">Owner</a></li>
-      <li><a href="profit.php">Total Profit</a></li>
+      <li><a href="profit.php">Profit</a></li>
       <li><a href="model.php">Model</a></li>
       <li style="float:right"><a class="active1" href="../logout.php">Logout</a></li>
    </ul>
@@ -29,6 +29,7 @@ exit;
     <li class = "vertical"><a class = "active3" href="addstore.php">Add Store</a></li>
     <li class = "vertical"><a href="deletestore.php">Delete Store</a></li>
     <li class = "vertical"><a href="storedetails.php">Store Details</a></li>
+    <li class = "vertical"><a href="displaystores.php">Display Stores</a></li>
   </ul>
    <h3>Add a Store</h3>
      <form action = "" method = "post">

@@ -19,9 +19,9 @@ exit;
    </p>
     <ul>
       <li><a href="index.php">Admin</a></li>
-      <li><a class="active" href="store.php">Store</a></li>
-      <li><a href="owner.php">Owner</a></li>
-      <li><a href="profit.php">Total Profit</a></li>
+      <li><a href="store.php">Store</a></li>
+      <li><a class="active" href="owner.php">Owner</a></li>
+      <li><a href="profit.php">Profit</a></li>
       <li><a href="model.php">Model</a></li>
       <li style="float:right"><a class="active1" href="../logout.php">Logout</a></li>
    </ul>
@@ -29,7 +29,9 @@ exit;
     <li class = "vertical"><a href="addowner.php">Add Owner</a></li>
     <li class = "vertical"><a href="deleteowner.php">Delete Owner</a></li>
     <li class = "vertical"><a class = "active3" href="ownerdetails.php">Owner Details</a></li>
+    <li class = "vertical"><a href="displayowners.php">Display Owners</a></li>
   </ul>
+  <h3>Details of a owner</h3>
    <form action = "" method = "post">
      <input type = "text" name = "ownerId" placeholder="Owner ID">
      <button type="submit">Submit</button>

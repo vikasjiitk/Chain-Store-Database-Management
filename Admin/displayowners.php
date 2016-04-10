@@ -20,15 +20,17 @@ exit;
     <ul>
       <li><a href="index.php">Admin</a></li>
       <li><a href="store.php">Store</a></li>
-      <li><a href="owner.php">Owner</a></li>
+      <li><a class="active" href="owner.php">Owner</a></li>
       <li><a href="profit.php">Profit</a></li>
-      <li><a class="active" href="model.php">Model</a></li>
+      <li><a href="model.php">Model</a></li>
       <li style="float:right"><a class="active1" href="../logout.php">Logout</a></li>
-    </ul>
+   </ul>
   <ul class = "vertical">
-    <li class = "vertical"><a href="addmodel.php">Add Model</a></li>
-    <li class = "vertical"><a href="deletemodel.php">Delete Model</a></li>
-    <li class = "vertical"><a href="updatemodel.php">Update Model</a></li>
-    <li class = "vertical"><a href="displaymodel.php">Display Models</a></li>
+    <li class = "vertical"><a href="addowner.php">Add Owner</a></li>
+    <li class = "vertical"><a href="deleteowner.php">Delete Owner</a></li>
+    <li class = "vertical"><a href="ownerdetails.php">Owner Details</a></li>
+    <li class = "vertical"><a class = "active3" href="displayowners.php">Display Owners</a></li>
   </ul>
+  <h3>Display Owners</h3>
+
 </body>

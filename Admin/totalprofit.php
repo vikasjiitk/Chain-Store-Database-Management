@@ -21,14 +21,15 @@ exit;
       <li><a href="index.php">Admin</a></li>
       <li><a href="store.php">Store</a></li>
       <li><a href="owner.php">Owner</a></li>
-      <li><a href="profit.php">Profit</a></li>
-      <li><a class="active" href="model.php">Model</a></li>
+      <li><a class="active" href="profit.php">Profit</a></li>
+      <li><a href="model.php">Model</a></li>
       <li style="float:right"><a class="active1" href="../logout.php">Logout</a></li>
     </ul>
-  <ul class = "vertical">
-    <li class = "vertical"><a href="addmodel.php">Add Model</a></li>
-    <li class = "vertical"><a href="deletemodel.php">Delete Model</a></li>
-    <li class = "vertical"><a href="updatemodel.php">Update Model</a></li>
-    <li class = "vertical"><a href="displaymodel.php">Display Models</a></li>
-  </ul>
+    <ul class = "vertical">
+  <li class = "vertical"><a class="active3" href="totalprofit.php">Total Profit</a></li>
+  <li class = "vertical"><a href="storeprofit.php">Store Profit</a></li>
+  <li class = "vertical"><a href="dayprofit.php">Day Profit</a></li>
+  <li class = "vertical"><a href="daystoreprofit.php">Daywise Store Profit</a></li>
+</ul>
+   <h3>Total Profit</h3>
 </body>
