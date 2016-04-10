@@ -15,12 +15,12 @@ input {
     border: 2px solid lightblue;
     border-radius: 4px;
     background-color: #cce6ff;
-    color: white;
+    color: black;
 }
 input[type=button], input[type=submit], input[type=reset] {
     background-color: #4CAF50;
     border: none;
-    color: white;
+    color: black;
     padding: 16px 32px;
     text-decoration: none;
     margin: 4px 2px;
@@ -38,4 +38,31 @@ button{
 p.warning{
   background-color: red;
   font-size: 20px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #3366ff;
 }
