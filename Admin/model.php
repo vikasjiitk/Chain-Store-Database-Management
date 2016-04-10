@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<?php session_start();?>
+<?php session_start();
+if(!$_SESSION['loggedin'])
+{
+header("Location:../login.php");
+exit;
+}
+?>
 <title>Total Profit</title>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -13,7 +19,7 @@
    </p>
     <ul>
       <li><a href="index.php">Admin</a></li>
-      <li><a href="store.php">Store Details</a></li>
+      <li><a href="store.php">Store</a></li>
       <li><a href="profit.php">Total Profit</a></li>
       <li><a class="active" href="model.php">Model</a></li>
       <li style="float:right"><a class="active1" href="../logout.php">Logout</a></li>

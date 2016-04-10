@@ -26,8 +26,12 @@ exit;
    </ul>
    <ul class = "vertical">
     <li class = "vertical"><a href="addstore.php">Add Store</a></li>
-    <li class = "vertical"><a href="deletestore.php">Delete Store</a></li>
+    <li class = "vertical"><a class = "active3" href="deletestore.php">Delete Store</a></li>
     <li class = "vertical"><a href="storedetails.php">Store Details</a></li>
   </ul>
-  
+   <h3>Delete a Store</h3>
+     <form action = "" method = "post">
+     <input type = "text" name = "storeId" placeholder="Store ID">
+     <button type="submit">DELETE</button>
+     </form>
 </body>
