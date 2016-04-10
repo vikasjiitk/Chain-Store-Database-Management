@@ -9,26 +9,7 @@
 <body>
    <p>
    <h1> Chain Store Management System</h1>
-   <h3>Login</h3>
- </p>
-   <form action = "" method = "post">
-     <input type="text" name="user" placeholder="Username">
-     <input type = "password" name = "pass" placeholder="Password">
-     <input type="hidden" name="usercat" value="admin">
-     <button type="submit">Admin Login</button>
-   </form>
-   <form action = "" method = "post">
-     <input type="text" name="user" placeholder="Username">
-     <input type = "password" name = "pass" placeholder="Password">
-     <input type="hidden" name="usercat" value="owner">
-     <button type="submit">Owner Login</button>
-   </form>
-   <form action = "" method = "post">
-     <input type="text" name="user" placeholder="Username">
-     <input type = "password" name = "pass" placeholder="Password">
-     <input type="hidden" name="usercat" value="recep">
-     <button type="submit">Receptionist Login</button>
-   </form>
+   <p>Login</p>
    <?php
    if($_SERVER["REQUEST_METHOD"] == "POST"){
      $user = $_POST["user"];
@@ -73,3 +54,25 @@
        }
    }
     ?>
+ </p>
+   <form action = "" method = "post">
+     <input type="text" name="user" placeholder="Username">
+     <input type = "password" name = "pass" placeholder="Password">
+     <input type="hidden" name="usercat" value="admin">
+     <button type="submit">Admin Login</button>
+   </form>
+   <hr>
+   <form action = "" method = "post">
+     <input type="text" name="user" placeholder="Username">
+     <input type = "password" name = "pass" placeholder="Password">
+     <input type="hidden" name="usercat" value="owner">
+     <button type="submit">Owner Login</button>
+   </form>
+   <hr>
+   <form action = "" method = "post">
+     <input type="text" name="user" placeholder="Username">
+     <input type = "password" name = "pass" placeholder="Password">
+     <input type="hidden" name="usercat" value="recep">
+     <button type="submit">Receptionist Login</button>
+   </form>
+</body>
