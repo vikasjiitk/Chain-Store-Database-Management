@@ -12,6 +12,15 @@ exit;
 <style>
 </style>
 </head>
+<?php
+session_start();
+// echo $_SESSION['loggedin'];
+if(!$_SESSION['loggedin'])
+{
+header("Location:../login.php");
+exit;
+}
+?>
 <body>
    <p>
    <h1>Chain Store Management System</h1>
@@ -28,14 +37,23 @@ exit;
      <input type = "text" name = "model" placeholder="Model">
      <button type="submit">Update</button>
    </form>
-   <?php
-   $link = mysqli_connect('localhost','pma','','chainStores');
-   $user = $_SESSION['loggedin'];
-   $item = $_POST['itemId']
-   $model = $_POST['model']
-   $query = "SELECT * from `Rcpts` where `recUser` = '$user'";
-   $query_run = mysqli_query($link, $query);
-   $data = mysqli_fetch_assoc($query_run);
-   echo '<p><hr> Receptionist Name - '.$data['recName'].'<br/> <hr> Work Store Id - '.$data['storeId'].'</p>'
-    ?>
+
+<?php
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $query1 = "SELECT `storeId` from `Owners` where `ownerUsername` = '$user'";
+  $query_run1 = mysqli_query($link, $query1);
+  $store = mysqli_fetch_assoc($query_run1);
+  // echo $store['storeId'];
+  $Store = $store['storeId'];
+  $model = $_POST['modelid'];
+  $query2 = "SELECT * from `Item` where `modelId` = '$model' and `storeId` = '$Store'";
+  $query_run2 = mysqli_query($link, $query2);
+  $items = mysqli_num_rows($query_run2);
+  $no = $items;
+  echo '<p>No. of items with model id '.$model.' : '.$no;
+
+}
+ ?>
 </body>

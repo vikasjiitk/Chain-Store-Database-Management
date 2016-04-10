@@ -18,17 +18,12 @@
       <li><a class="active" href="model.php">Model</a></li>
       <li style="float:right"><a class="active1" href="../logout.php">Logout</a></li>
     </ul>
-    <ul class = "vertical">
-  <li class = "vertical"><a href="storeprofit.php">Store Profit</a></li>
-  <li class = "vertical"><a href="dayprofit.php">Day Profit</a></li>
-  <li class = "vertical"><a class="active3" href="daystoreprofit.php">Daywise Store Profit</a></li>
-</ul>
-
-   <h3>Day wise Store Profit</h3>
-     <form action = "" method = "post">
-     <input type = "text" name = "storeId" placeholder="Store Id">
-     <input type = "text" name = "Date" placeholder="Date">
-     <button type="submit">Submit</button>
-     </form>
+  <ul class = "vertical">
+    <li class = "vertical"><a href="addmodel.php">Add Model</a></li>
+    <li class = "vertical"><a href="deletemodel.php">Delete Model</a></li>
+    <li class = "vertical"><a href="updatemodel.php">Update Model</a></li>
+    <li class = "vertical"><a class="active3" href="displaymodel.php">Display Models</a></li>
+  </ul>
+  <h3>Display Models</h3>
 
 </body>

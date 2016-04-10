@@ -12,6 +12,15 @@ exit;
 <style>
 </style>
 </head>
+<?php
+session_start();
+// echo $_SESSION['loggedin'];
+if(!$_SESSION['loggedin'])
+{
+header("Location:../login.php");
+exit;
+}
+?>
 <body>
    <p>
    <h1>Chain Store Management System</h1>
