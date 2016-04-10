@@ -50,11 +50,8 @@ ul.vertical {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 25%;
     background-color: #f1f1f1;
-    position: fixed;
-    height: 50px;
-    overflow: auto;
+    overflow: hidden;
 }
 li {
     float: left;
@@ -74,7 +71,7 @@ li.vertical a {
     text-decoration: none;
 }
 li.vertical a:hover:not(.active) {
-    background-color: white;
+    background-color: #ccffff;
 }
 
 li a:hover:not(.active) {
@@ -86,4 +83,10 @@ li a:hover:not(.active) {
 }
 .active1 {
     background-color: #33ccff;
+}
+.active2 {
+    background-color: #000099;
+}
+.active3{
+    background-color: #00ffff;
 }
