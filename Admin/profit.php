@@ -17,14 +17,9 @@
       <li><a class="active" href="profit.php">Total Profit</a></li>
       <li style="float:right"><a class="active1" href="logout.php">Logout</a></li>
     </ul>
-   <form action = "storeprofit.php" method = "post">
-     <button type="submit">Store Profit</button>
-   </form>
-   <form action = "dayprofit.php" method = "post">
-     <button type="submit">Day Wise Total Profit</button>
-   </form>
-   <form action = "daystoreprofit.php" method = "post">
-     <button type="submit">Day Wise Store Profit</button>
-   </form>
-   
+  <ul class = "vertical">
+    <li class = "vertical"><a href="storeprofit.php">Store Profit</a></li>
+    <li class = "vertical"><a href="dayprofit.php">Day Profit</a></li>
+    <li class = "vertical"><a href="daystoreprofit.php">Daywise Store Profit</a></li>
+  </ul>
 </body>
