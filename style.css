@@ -1,0 +1,41 @@
+body{
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: sans-serif;
+}
+h1{
+  text-align: center;
+}
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid lightblue;
+    border-radius: 4px;
+    background-color: #cce6ff;
+    color: white;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+button{
+  background-color: #3366ff;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+p.warning{
+  background-color: red;
+  font-size: 20px;
+}
