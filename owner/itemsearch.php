@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<title>Chain Store Management System</title>
+<title>Search Item</title>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 <style>

@@ -6,7 +6,7 @@ header("Location:../login.php");
 exit;
 }
 ?>
-<title>Total Profit</title>
+<title>Day wise Store Profit</title>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 <style>
@@ -35,8 +35,23 @@ exit;
    <h3>Day wise Store Profit</h3>
      <form action = "" method = "post">
      <input type = "text" name = "storeId" placeholder="Store Id">
-     <input type = "text" name = "Date" placeholder="Date">
+     <input type = "date" name = "date" placeholder="Date">
      <button type="submit">Submit</button>
      </form>
-
 </body>
+<?php
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $storeId = $_POST['storeId'];
+  $date = $_POST['date'];
+  $query2 = "SELECT sum(`cp`),sum(`sp`) from `Sales` where `storeId` = '$storeId' AND `date` = '$date'";
+  $query_run2 = mysqli_query($link, $query2);
+  while($data = mysqli_fetch_assoc($query_run2)){
+    // echo '<p><hr><hr> Receptionist Details - '.$data['recId'].', '.$data['storeId'].', '.$data['recUser'].', '.$data['recName'].'</p>';
+    echo '<p><hr><hr> Total Cost Price : '.$data['sum(`cp`)'].'</p>';
+    echo '<p><hr><hr> Total Selling Price : '.$data['sum(`sp`)'].'</p>';
+    $profit = $data['sum(`sp`)'] - $data['sum(`cp`)'];
+    echo '<p><hr><hr> Total Profit of the Store : '.$profit.'</p>';
+  }
+}

@@ -33,3 +33,17 @@ exit;
 </ul>
    <h3>Total Profit</h3>
 </body>
+<?php
+if(1){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $query2 = "SELECT sum(`cp`),sum(`sp`) from `Sales`";
+  $query_run2 = mysqli_query($link, $query2);
+  while($data = mysqli_fetch_assoc($query_run2)){
+    // echo '<p><hr><hr> Receptionist Details - '.$data['recId'].', '.$data['storeId'].', '.$data['recUser'].', '.$data['recName'].'</p>';
+    echo '<p><hr><hr> Total Cost Price : '.$data['sum(`cp`)'].'</p>';
+    echo '<p><hr><hr> Total Selling Price : '.$data['sum(`sp`)'].'</p>';
+    $profit = $data['sum(`sp`)'] - $data['sum(`cp`)'];
+    echo '<p><hr><hr> Total Profit of the Store : '.$profit.'</p>';
+  }
+}

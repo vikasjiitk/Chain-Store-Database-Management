@@ -30,5 +30,14 @@ exit;
     <li class = "vertical"><a class="active3" href="displayreceps.php">Display Receptionists</a></li>
   </ul>
   <h3>Display Receptionists</h3>
-
 </body>
+<?php
+if(1){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $query = "SELECT * from `Rcpts`";
+  $query_run = mysqli_query($link, $query);
+  while($data = mysqli_fetch_assoc($query_run)){
+    echo '<p><hr><hr> Receptionist Details - '.$data['recId'].', '.$data['storeId'].', '.$data['recUser'].', '.$data['recName'].'</p>';
+  }
+}

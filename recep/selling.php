@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<title>Receptionst</title>
+<title>Selling Details</title>
 <head>
   <link rel="stylesheet" type="text/css"1 href="../style.css">
 <style>

@@ -6,7 +6,7 @@ header("Location:../login.php");
 exit;
 }
 ?>
-<title>Receptionst</title>
+<title>Update</title>
 <head>
   <link rel="stylesheet" type="text/css" href="../style.css">
 <style>
@@ -44,15 +44,17 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   $query_run2 = mysqli_query($link, $query2);
   $items = mysqli_num_rows($query_run2);
   if($items != 0){
-    $query3 = "Insert into `Item` values(".$item.",".$Store.",".$model.")";
-    if($query_run3 = mysqli_query($link, $query3)){
-      echo '<p>Data Inserted Successfully</p>';
-    }
-    else { echo '<p class="warning">Insertion failed</p>';}
-  }
-  else{
-    echo '<p class="warning">Such Model Id does not exist.</p>';
-  }
+    $query4 = "SELECT * from `Sales` where `itemId` = '$item'";
+    $query_run4 = mysqli_query($link, $query4);
+    $items4 = mysqli_num_rows($query_run4);
+    if($items4 == 0){
+      $query3 = "Insert into `Item` values(".$item.",".$Store.",".$model.")";
+      if($query_run3 = mysqli_query($link, $query3)){
+        echo '<p>Data Inserted Successfully</p>';
+      }
+      else { echo '<p class="warning">Item already Existed</p>';}
+    }else{echo '<p class="warning">Item already Existed</p>'; }}
+  else{echo '<p class="warning">Such Model Id does not exist.</p>';}
 }
  ?>
 </body>

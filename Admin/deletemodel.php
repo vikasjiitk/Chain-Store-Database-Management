@@ -6,7 +6,7 @@ header("Location:../login.php");
 exit;
 }
 ?>
-<title>Total Profit</title>
+<title>Delete Model</title>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 <style>
@@ -36,5 +36,25 @@ exit;
      <input type = "text" name = "modelId" placeholder="Model ID">
      <button type="submit">DELETE</button>
      </form>
-
 </body>
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $modelId = $_POST["modelId"];
+  $query1 = "SELECT * from `Model` where `modelId` = '$modelId'";
+  $query_run1 = mysqli_query($link, $query1);
+  $num = mysqli_num_rows($query_run1);
+  if($num != 0){
+    $query2 = "DELETE from `Model` where `modelId` = '$modelId'";
+    if($query_run2 = mysqli_query($link, $query2)){
+      echo '<p>Model Deleted Succesfully</p>';
+    }
+    else{
+      echo '<p class="warning"> Failure</p>';
+    }
+  }
+  else{ echo '<p class="warning">Model '.$modelId.' does not exists</p>';}
+}
+?>
+

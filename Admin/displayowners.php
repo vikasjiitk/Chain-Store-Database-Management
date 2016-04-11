@@ -6,7 +6,7 @@ header("Location:../login.php");
 exit;
 }
 ?>
-<title>Total Profit</title>
+<title>Display Owners</title>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 <style>

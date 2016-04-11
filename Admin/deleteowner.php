@@ -6,7 +6,7 @@ header("Location:../login.php");
 exit;
 }
 ?>
-<title>Total Profit</title>
+<title>Delete Owner</title>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 <style>
@@ -43,13 +43,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $link = mysqli_connect('localhost','pma','','chainStores');
   $user = $_SESSION['loggedin'];
   $owner = $_POST["ownerId"];
-  $query = "DELETE from `Owners` where `ownerId` = '$owner'";
-  $query_run = mysqli_query($link, $query);
-  if($query_run){
-   echo '<p><hr> Owner Deleted';// '.$data['ownerName'].', '.$data['storeId'].', '.$data['ownerUsername'].'</p>';
- }
- else{
-   echo '<p class="warning">Owner '.$owner.' does not exist.';
- }
+  $query1 = "SELECT * from `Owners` where `ownerId` = '$owner'";
+  $query_run1 = mysqli_query($link, $query1);
+  $num = mysqli_num_rows($query_run1);
+  if($num != 0){
+    $query2 = "DELETE from `Owners` where `ownerId` = '$owner'";
+    if($query_run2 = mysqli_query($link, $query2)){
+      echo '<p>Owner Deleted Succesfully</p>';
+    }
+    else{
+      echo '<p class="warning"> Failure</p>';
+    }
+  }
+  else{ echo '<p class="warning">Owner '.$owner.' does not exists</p>';}
 }
 ?>

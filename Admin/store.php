@@ -6,7 +6,7 @@ header("Location:../login.php");
 exit;
 }
 ?>
-<title>Store Details</title>
+<title>Store</title>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 <style>

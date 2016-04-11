@@ -6,7 +6,7 @@ header("Location:../login.php");
 exit;
 }
 ?>
-<title>Store Details</title>
+<title>Add Owner</title>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 <style>
@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if($num2 != 0){
       $query2 = "Insert into `Owners` values(".$ownerId.",'$ownerName',".$storeId.",'$ownerUsername','$ownerPass')";
       if($query_run2 = mysqli_query($link, $query2)){
-        echo '<p>Store Added Succesfully</p>';
+        echo '<p>Owner Added Succesfully</p>';
       }
       else{
         echo '<p class="warning"> Failure</p>';

@@ -6,7 +6,7 @@ header("Location:../login.php");
 exit;
 }
 ?>
-<title>Total Profit</title>
+<title>Display Model</title>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 <style>
@@ -34,3 +34,14 @@ exit;
   <h3>Display Models</h3>
 
 </body>
+<?php
+if(1){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $query = "SELECT * from `Model`";
+  $query_run = mysqli_query($link, $query);
+  while($data = mysqli_fetch_assoc($query_run)){
+    echo '<p><hr><hr> Owner Details - Model Id: '.$data['modelId'].', Cost Price: '.$data['cp'].', Max Retail Price: '.$data['mrp'].'</p>';
+  }
+}
+?>

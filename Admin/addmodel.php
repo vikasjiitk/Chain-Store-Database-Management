@@ -6,7 +6,7 @@ header("Location:../login.php");
 exit;
 }
 ?>
-<title>Total Profit</title>
+<title>Add Model</title>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 <style>
@@ -38,5 +38,27 @@ exit;
      <input type = "text" name = "mrp" placeholder="M.R.P">
      <button type="submit">ADD</button>
      </form>
-
 </body>
+<?php
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $modelId = $_POST["modelId"];
+  $cp = $_POST["cp"];
+  $mrp = $_POST["mrp"];
+  $query1 = "SELECT * from `Model` where `modelId` = '$modelId'";
+  $query_run1 = mysqli_query($link, $query1);
+  $num = mysqli_num_rows($query_run1);
+  if($num == 0){
+    $query2 = "Insert into `Model` values(".$modelId.",'$cp','$mrp')";
+    if($query_run2 = mysqli_query($link, $query2)){
+      echo '<p>Model Added Succesfully</p>';
+    }
+    else{
+      echo '<p class="warning"> Failure</p>';
+    }
+  }
+  else{ echo '<p class="warning">Model '.$modelId.' already exists</p>';}
+}
+ ?>
+

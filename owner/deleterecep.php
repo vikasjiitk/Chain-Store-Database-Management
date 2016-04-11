@@ -34,5 +34,24 @@ exit;
      <input type = "text" name = "recId" placeholder="Receptionist ID">
      <button type="submit">DELETE</button>
      </form>
-
 </body>
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $recId = $_POST["recId"];
+  $query1 = "SELECT * from `Rcpts` where `recId` = '$recId'";
+  $query_run1 = mysqli_query($link, $query1);
+  $num = mysqli_num_rows($query_run1);
+  if($num != 0){
+    $query2 = "DELETE from `Rcpts` where `recId` = '$recId'";
+    if($query_run2 = mysqli_query($link, $query2)){
+      echo '<p>Receptionist Deleted Succesfully</p>';
+    }
+    else{
+      echo '<p class="warning"> Failure</p>';
+    }
+  }
+  else{ echo '<p class="warning">Receptionist '.$recId.' does not exists</p>';}
+}
+?>
