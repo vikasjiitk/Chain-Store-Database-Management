@@ -39,3 +39,25 @@ exit;
      <button type="submit">ADD</button>
      </form>
 </body>
+<?php
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $storeId = $_POST["storeId"];
+  $location = $_POST['location'];
+  $contactNo = $_POST['contactNo'];
+  $query1 = "SELECT * from `Stores` where `storeId` = '$storeId'";
+  $query_run1 = mysqli_query($link, $query1);
+  $num = mysqli_num_rows($query_run1);
+  if($num == 0){
+    $query2 = "Insert into `Stores` values(".$storeId.",'$location',".$contactNo.")";
+    if($query_run2 = mysqli_query($link, $query2)){
+      echo '<p>Store Added Succesfully</p>';
+    }
+    else{
+      echo '<p class="warning"> Failure</p>';
+    }
+  }
+  else{ echo '<p class="warning">Store '.$storeId.' already exists</p>';}
+}
+ ?>

@@ -33,8 +33,23 @@ exit;
   </ul>
   <h3>Delete a Owner</h3>
      <form action = "" method = "post">
-     <input type = "text" name = "ownerId" placeholder="Owner ID">
+     <input type = "number" name = "ownerId" placeholder="Owner ID">
      <button type="submit">DELETE</button>
      </form>
 
 </body>
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $owner = $_POST["ownerId"];
+  $query = "DELETE from `Owners` where `ownerId` = '$owner'";
+  $query_run = mysqli_query($link, $query);
+  if($query_run){
+   echo '<p><hr> Owner Deleted';// '.$data['ownerName'].', '.$data['storeId'].', '.$data['ownerUsername'].'</p>';
+ }
+ else{
+   echo '<p class="warning">Owner '.$owner.' does not exist.';
+ }
+}
+?>

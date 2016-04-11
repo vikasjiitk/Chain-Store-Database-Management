@@ -33,11 +33,41 @@ exit;
   </ul>
    <h3>Add a Owner</h3>
      <form action = "" method = "post">
-     <input type = "text" name = "ownerId" placeholder="Owner ID">
+     <input type = "number" name = "ownerId" placeholder="Owner ID">
      <input type = "text" name = "ownerName" placeholder="Owner Name">
-     <input type = "text" name = "storeId" placeholder="Store ID">
+     <input type = "number" name = "storeId" placeholder="Store ID">
      <input type = "text" name = "ownerUsername" placeholder="Owner Username">
-     <input type = "text" name = "ownerPass" placeholder="Owner Password">
+     <input type = "password" name = "ownerPass" placeholder="Owner Password">
      <button type="submit">ADD</button>
      </form>
 </body>
+<?php
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $ownerId = $_POST["ownerId"];
+  $ownerName = $_POST["ownerName"];
+  $storeId = $_POST["storeId"];
+  $ownerUsername = $_POST['ownerUsername'];
+  $ownerPass = $_POST['ownerPass'];
+  $query1 = "SELECT * from `Owners` where `ownerId` = '$ownerId' OR `ownerUsername` = '$ownerUsername'";
+  $query_run1 = mysqli_query($link, $query1);
+  $num = mysqli_num_rows($query_run1);
+  if($num == 0){
+    $query3 = "SELECT * from `Stores` where `storeId` = '$storeId'";
+    $query_run3 = mysqli_query($link, $query3);
+    $num2 = mysqli_num_rows($query_run3);
+    if($num2 != 0){
+      $query2 = "Insert into `Owners` values(".$ownerId.",'$ownerName',".$storeId.",'$ownerUsername','$ownerPass')";
+      if($query_run2 = mysqli_query($link, $query2)){
+        echo '<p>Store Added Succesfully</p>';
+      }
+      else{
+        echo '<p class="warning"> Failure</p>';
+      }
+    }
+    else {echo '<p class="warning">Store id '.$storeId.' does not exist.</p>';}
+  }
+  else{ echo '<p class="warning">Owner '.$ownerId.' OR '.$ownerUsername.' already exists</p>';}
+}
+ ?>
