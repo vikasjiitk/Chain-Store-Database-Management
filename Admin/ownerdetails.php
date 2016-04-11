@@ -43,8 +43,12 @@ exit;
      $owner = $_POST["ownerId"];
      $query = "SELECT * from `Owners` where `ownerId` = '$owner'";
      $query_run = mysqli_query($link, $query);
-     $data = mysqli_fetch_assoc($query_run);
-     echo '<p><hr> Owner Details - '.$data['ownerName'].', '.$data['storeId'].', '.$data['ownerUsername'].'</p>';
+     if($data = mysqli_fetch_assoc($query_run)){
+      echo '<p><hr> Owner Details - '.$data['ownerName'].', '.$data['storeId'].', '.$data['ownerUsername'].'</p>';
+    }
+    else{
+      echo '<p class="warning">Owner '.$owner.' does not exist.';
+    }
    }
   ?>
 </body>

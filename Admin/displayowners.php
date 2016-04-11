@@ -34,3 +34,29 @@ exit;
   <h3>Display Owners</h3>
 
 </body>
+<?php
+if(1){
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $user = $_SESSION['loggedin'];
+  $query = "SELECT * from `Owners`";
+  $query_run = mysqli_query($link, $query);
+  while($data = mysqli_fetch_assoc($query_run)){
+    echo '<p><hr><hr> Owner Details - '.$data['ownerId'].', '.$data['storeId'].', '.$data['ownerUsername'].', '.$data['ownerName'].'</p>';
+  //   $store = $data['storeId'];
+  //   $query2 = "SELECT * from `Owners` where `storeId` = '$store'";
+  //   $query_run2 = mysqli_query($link, $query2);
+  //   echo '<hr>Owners: ';
+  //   $i = 1;
+  //   while($data2 = mysqli_fetch_assoc($query_run2)){
+  //     echo '<p>('.$i.') Owner Id - '.$data2['ownerId'].', Owner Name - '.$data2['ownerName'].'</p>';
+  //   }
+  //   $query3 = "SELECT * from `Rcpts` where `storeId` = '$store'";
+  //   $query_run3 = mysqli_query($link, $query3);
+  //   echo '<hr>Receptionists: ';
+  //   $i = 1;
+  //   while($data3 = mysqli_fetch_assoc($query_run3)){
+  //     echo '<p>('.$i.') Receptionist Id - '.$data3['recId'].', Receptionist Name - '.$data3['recName'].', Work Store Id - '.$data3['storeId'].'</p>';
+  //   }
+  }
+}
+?>
