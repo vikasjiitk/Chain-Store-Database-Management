@@ -25,7 +25,7 @@ exit;
   </ul>
    <ul class = "vertical">
     <li class = "vertical"><a href="storeprofit.php">Store Profit</a></li>
-    <li class = "vertical"><a href="dayprofit.php">Day Profit</a></li>
+    <li class = "vertical"><a class = "active3" href="dayprofit.php">Day Profit</a></li>
   </ul>
    <h3>Total Day Profit</h3>
      <form action = "" method = "post">

@@ -24,7 +24,7 @@ exit;
     <li style="float:right"><a class="active" href="../logout.php">Logout</a></li>
   </ul>
     <ul class = "vertical">
-    <li class = "vertical"><a href="storeprofit.php">Store Profit</a></li>
+    <li class = "vertical"><a class = "active3" href="storeprofit.php">Store Profit</a></li>
     <li class = "vertical"><a href="dayprofit.php">Day Profit</a></li>
   </ul>
    <h3>Total Store Profit</h3>
