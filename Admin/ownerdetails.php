@@ -40,11 +40,11 @@ exit;
    if($_SERVER["REQUEST_METHOD"] == "POST"){
      $link = mysqli_connect('localhost','pma','','chainStores');
      $user = $_SESSION['loggedin'];
-     $owner = $_POST["ownerId"];
+     $owner = $_POST['ownerId'];
      $query = "SELECT * from `Owners` where `ownerId` = '$owner'";
      $query_run = mysqli_query($link, $query);
      $data = mysqli_fetch_assoc($query_run);
-     echo '<p><hr> Owner Details - '.$data['ownerName'].', '.$data['storeId'].', '.$data['ownerUsername'].'</p>';
+     echo '<p><hr> Owner Details - '.$data['ownerName'].', '.$data['storeId'].'</p>';
    }
   ?>
 </body>
