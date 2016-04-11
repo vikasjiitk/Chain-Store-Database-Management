@@ -1,0 +1,92 @@
+body{
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: sans-serif;
+}
+h1{
+  text-align: center;
+}
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid lightblue;
+    border-radius: 4px;
+    background-color: #cce6ff;
+    color: black;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+button{
+  background-color: #3366ff;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+p.warning{
+  background-color: red;
+  font-size: 20px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+ul.vertical {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+    overflow: hidden;
+}
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li.vertical a {
+    display: block;
+    color: black;
+    padding: 8px 8px 8px 16px;
+    text-decoration: none;
+}
+li.vertical a:hover:not(.active) {
+    background-color: #ccffff;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #3366ff;
+}
+.active1 {
+    background-color: #33ccff;
+}
+.active2 {
+    background-color: #000099;
+}
+.active3{
+    background-color: #00ffff;
+}

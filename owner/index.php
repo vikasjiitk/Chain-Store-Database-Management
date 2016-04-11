@@ -15,11 +15,14 @@ exit;
 }
 ?>
 <body>
+   <p>
+   <h1>Chain Store Management System</h1>
+   <h3></h3>
   <p> Hello <?php echo $_SESSION['loggedin']; ?>!</p>
   <ul>
     <li><a class="active" href="index.php">Store Stock</a></li>
     <li><a href="profit.php">Profit</a></li>
-    <li><a href="recp.php">Receptionists</a></li>
+    <li><a href="recep.php">Receptionists</a></li>
     <li style="float:right"><a class="active" href="../logout.php">Logout</a></li>
   </ul>
   <p>Search your store stock:</p>

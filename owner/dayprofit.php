@@ -6,7 +6,7 @@ header("Location:../login.php");
 exit;
 }
 ?>
-<title>Total Profit</title>
+<title>Day Profit</title>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 <style>
@@ -23,8 +23,14 @@ exit;
     <li><a href="recep.php">Receptionists</a></li>
     <li style="float:right"><a class="active" href="../logout.php">Logout</a></li>
   </ul>
-  <ul class = "vertical">
+   <ul class = "vertical">
     <li class = "vertical"><a href="storeprofit.php">Store Profit</a></li>
     <li class = "vertical"><a href="dayprofit.php">Day Profit</a></li>
   </ul>
+   <h3>Total Day Profit</h3>
+     <form action = "" method = "post">
+     <input type = "text" name = "Date" placeholder="Date">
+     <button type="submit">Submit</button>
+     </form>
+
 </body>
