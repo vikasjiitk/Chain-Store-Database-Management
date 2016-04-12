@@ -5,6 +5,18 @@ if(!$_SESSION['loggedin'])
 header("Location:../login.php");
 exit;
 }
+else{
+  $user = $_SESSION['loggedin'];
+  $pass = $_SESSION['pass'];
+  $q = "SELECT * from `Admins` where `adminUser` = '$user' and `adminPass` = '$pass'";
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $run = mysqli_query($link, $q);
+  $n = mysqli_num_rows($run);
+  if($n == 0){
+    header("Location:../login.php");
+    exit;
+  }
+}
 ?>
 <title>Model</title>
 <head>

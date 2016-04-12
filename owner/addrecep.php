@@ -5,6 +5,18 @@ if(!$_SESSION['loggedin'])
 header("Location:../login.php");
 exit;
 }
+else{
+  $user = $_SESSION['loggedin'];
+  $pass = $_SESSION['pass'];
+  $q = "SELECT * from `Owners` where `ownerUsername` = '$user' and `OwnerPass` = '$pass'";
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $run = mysqli_query($link, $q);
+  $n = mysqli_num_rows($run);
+  if($n == 0){
+    header("Location:../login.php");
+    exit;
+  }
+}
 ?>
 <title>Add Receptionist</title>
 <head>
@@ -46,6 +58,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   $recId = $_POST['recId'];
   $recUser = $_POST['recUser'];
   $recPass = $_POST['recPass'];
+  $hashrecPass = md5($recPass);
   $recName = $_POST['recName'];
   // $storeId = $_POST['storeId'];
   $query1 = "SELECT * from `Rcpts` where `recId` = '$recId' OR `recUser` = '$recUser'";
@@ -60,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     // $query_run3 = mysqli_query($link, $query3);
     // $num2 = mysqli_num_rows($query_run3);
     if(1){
-      $query2 = "Insert into `Rcpts` values(".$recId.",'$recUser','$recPass','$recName',".$storeId.")";
+      $query2 = "Insert into `Rcpts` values(".$recId.",'$recUser','$hashrecPass','$recName',".$storeId.")";
       if($query_run2 = mysqli_query($link, $query2)){
         echo '<p>Receptionist Added Succesfully</p>';
       }

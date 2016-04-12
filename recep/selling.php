@@ -13,6 +13,18 @@ if(!$_SESSION['loggedin'])
 header("Location:../login.php");
 exit;
 }
+else{
+  $user = $_SESSION['loggedin'];
+  $pass = $_SESSION['pass'];
+  $q = "SELECT * from `Rcpts` where `recUser` = '$user' and `recPass` = '$pass'";
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $run = mysqli_query($link, $q);
+  $n = mysqli_num_rows($run);
+  if($n == 0){
+    header("Location:../login.php");
+    exit;
+  }
+}
 ?>
 <body>
    <p>

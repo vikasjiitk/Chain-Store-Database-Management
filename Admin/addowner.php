@@ -5,6 +5,18 @@ if(!$_SESSION['loggedin'])
 header("Location:../login.php");
 exit;
 }
+else{
+  $user = $_SESSION['loggedin'];
+  $pass = $_SESSION['pass'];
+  $q = "SELECT * from `Admins` where `adminUser` = '$user' and `adminPass` = '$pass'";
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $run = mysqli_query($link, $q);
+  $n = mysqli_num_rows($run);
+  if($n == 0){
+    header("Location:../login.php");
+    exit;
+  }
+}
 ?>
 <title>Add Owner</title>
 <head>
@@ -50,6 +62,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   $storeId = $_POST["storeId"];
   $ownerUsername = $_POST['ownerUsername'];
   $ownerPass = $_POST['ownerPass'];
+  $hashownerPass = md5($ownerPass);
   $query1 = "SELECT * from `Owners` where `ownerId` = '$ownerId' OR `ownerUsername` = '$ownerUsername'";
   $query_run1 = mysqli_query($link, $query1);
   $num = mysqli_num_rows($query_run1);
@@ -58,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $query_run3 = mysqli_query($link, $query3);
     $num2 = mysqli_num_rows($query_run3);
     if($num2 != 0){
-      $query2 = "Insert into `Owners` values(".$ownerId.",'$ownerName',".$storeId.",'$ownerUsername','$ownerPass')";
+      $query2 = "Insert into `Owners` values(".$ownerId.",'$ownerName',".$storeId.",'$ownerUsername','$hashownerPass')";
       if($query_run2 = mysqli_query($link, $query2)){
         echo '<p>Owner Added Succesfully</p>';
       }

@@ -14,12 +14,15 @@
    if($_SERVER["REQUEST_METHOD"] == "POST"){
      $user = $_POST["user"];
      $pass = $_POST["pass"];
+     $hashpass = md5($pass);
+     echo $hashpass;
      $link = mysqli_connect('localhost','pma','','chainStores');
      $usercat = $_POST["usercat"];
      if($usercat == "owner"){
-     $query = "SELECT `ownerUsername` from `Owners` where `ownerUsername` = '$user' and `OwnerPass` = '$pass'";
+     $query = "SELECT `ownerUsername` from `Owners` where `ownerUsername` = '$user' and `OwnerPass` = '$hashpass'";
      if($query_run=mysqli_query($link, $query)){
        $_SESSION['loggedin'] = $user;
+       $_SESSION['pass'] = $hashpass;
        if(mysqli_fetch_assoc($query_run)){
          header('Location: owner/index.php');
        }
@@ -29,9 +32,10 @@
      }
    }
    else if($usercat == "admin"){
-   $query = "SELECT `adminUser` from `Admin` where `adminUser` = '$user' and `adminPass` = '$pass'";
+   $query = "SELECT `adminUser` from `Admin` where `adminUser` = '$user' and `adminPass` = '$hashpass'";
    if($query_run=mysqli_query($link, $query)){
          $_SESSION['loggedin'] = $user;
+         $_SESSION['pass'] = $hashpass;
          if(mysqli_fetch_assoc($query_run)){
            header('Location: Admin/index.php');
          }
@@ -41,9 +45,10 @@
        }
      }
      else if($usercat == "recep"){
-     $query = "SELECT `recUser` from `Rcpts` where `recUser` = '$user' and `recPass` = '$pass'";
+     $query = "SELECT `recUser` from `Rcpts` where `recUser` = '$user' and `recPass` = '$hashpass'";
      if($query_run=mysqli_query($link, $query)){
            $_SESSION['loggedin'] = $user;
+           $_SESSION['pass'] = $hashpass;
            if(mysqli_fetch_assoc($query_run)){
              header('Location: recep/index.php');
            }

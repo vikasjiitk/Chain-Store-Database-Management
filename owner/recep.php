@@ -5,6 +5,18 @@ if(!$_SESSION['loggedin'])
 header("Location:../login.php");
 exit;
 }
+else{
+  $user = $_SESSION['loggedin'];
+  $pass = $_SESSION['pass'];
+  $q = "SELECT * from `Owners` where `ownerUsername` = '$user' and `OwnerPass` = '$pass'";
+  $link = mysqli_connect('localhost','pma','','chainStores');
+  $run = mysqli_query($link, $q);
+  $n = mysqli_num_rows($run);
+  if($n == 0){
+    header("Location:../login.php");
+    exit;
+  }
+}
 ?>
 <title>Receptionist</title>
 <head>
@@ -29,5 +41,5 @@ exit;
     <li class = "vertical"><a href="recepdetails.php">Receptionist Details</a></li>
     <li class = "vertical"><a href="displayreceps.php">Display Receptionists</a></li>
   </ul>
-  
+
 </body>
