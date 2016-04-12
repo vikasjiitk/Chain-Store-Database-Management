@@ -35,7 +35,7 @@ exit;
      <input type = "text" name = "recUser" placeholder="Receptionist UserName">
      <input type = "password" name = "recPass" placeholder="Receptionist Password">
      <input type = "text" name = "recName" placeholder="Receptionist Name">
-     <input type = "text" name = "storeId" placeholder="Store ID">
+     <!-- <input type = "text" name = "storeId" placeholder="Store ID"> -->
      <button type="submit">ADD</button>
      </form>
 </body>
@@ -47,15 +47,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   $recUser = $_POST['recUser'];
   $recPass = $_POST['recPass'];
   $recName = $_POST['recName'];
-  $storeId = $_POST['storeId'];
+  // $storeId = $_POST['storeId'];
   $query1 = "SELECT * from `Rcpts` where `recId` = '$recId' OR `recUser` = '$recUser'";
   $query_run1 = mysqli_query($link, $query1);
   $num = mysqli_num_rows($query_run1);
   if($num == 0){
-    $query3 = "SELECT * from `Stores` where `storeId` = '$storeId'";
-    $query_run3 = mysqli_query($link, $query3);
-    $num2 = mysqli_num_rows($query_run3);
-    if($num2 != 0){
+    $query4 = "SELECT `storeId` from `Owners` where `ownerUsername` = '$user'";
+    $query_run4 = mysqli_query($link, $query4);
+    $store = mysqli_fetch_assoc($query_run4);
+    $storeId = $store['storeId'];
+    // $query3 = "SELECT * from `Stores` where `storeId` = '$storeId'";
+    // $query_run3 = mysqli_query($link, $query3);
+    // $num2 = mysqli_num_rows($query_run3);
+    if(1){
       $query2 = "Insert into `Rcpts` values(".$recId.",'$recUser','$recPass','$recName',".$storeId.")";
       if($query_run2 = mysqli_query($link, $query2)){
         echo '<p>Receptionist Added Succesfully</p>';

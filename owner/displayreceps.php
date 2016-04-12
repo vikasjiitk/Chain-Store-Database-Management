@@ -35,7 +35,11 @@ exit;
 if(1){
   $link = mysqli_connect('localhost','pma','','chainStores');
   $user = $_SESSION['loggedin'];
-  $query = "SELECT * from `Rcpts`";
+  $query4 = "SELECT `storeId` from `Owners` where `ownerUsername` = '$user'";
+  $query_run4 = mysqli_query($link, $query4);
+  $store = mysqli_fetch_assoc($query_run4);
+  $storeId = $store['storeId'];
+  $query = "SELECT * from `Rcpts` where `storeId` = '$storeId'";
   $query_run = mysqli_query($link, $query);
   while($data = mysqli_fetch_assoc($query_run)){
     echo '<p><hr><hr> Receptionist Details - '.$data['recId'].', '.$data['storeId'].', '.$data['recUser'].', '.$data['recName'].'</p>';
