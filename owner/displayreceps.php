@@ -30,7 +30,8 @@ else{
    <h3></h3>
    </p>
      <ul>
-    <li><a href="index.php">Store Stock</a></li>
+    <li><a href="index.php">Owner</a></li>
+    <li><a href="modelsearch.php">Store Stock</a></li>
     <li><a href="profit.php">Profit</a></li>
     <li><a class="active" href="recep.php">Receptionists</a></li>
     <li style="float:right"><a class="active" href="../logout.php">Logout</a></li>

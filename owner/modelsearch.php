@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <title>Chain Store Management System</title>
 <head>
-  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 <style>
 </style>
 </head>
@@ -27,23 +27,25 @@ else{
 }
 ?>
 <body>
-  <p> Hello <?php echo $_SESSION['loggedin']; ?>!</p>
+   <p>
+   <h1>Chain Store Management System</h1>
+   <h3></h3>
   <ul>
     <li><a href="index.php">Owner</a></li>
-    <li><a href="modelsearch.php">Store Stock</a></li>
+    <li><a class="active" href="modelsearch.php">Store Stock</a></li>
     <li><a href="profit.php">Profit</a></li>
-    <li><a class="active" href="recp.php">Receptionists</a></li>
+    <li><a href="recep.php">Receptionists</a></li>
     <li style="float:right"><a class="active" href="../logout.php">Logout</a></li>
   </ul>
-  <!-- <p>Search your store stock:</p>
   <ul class = "vertical">
-  <li class = "vertical"><a href="index.php">By Model Id</a></li>
-  <li class = "vertical"><a  href="itemsearch.php">By Item Id</a></li>
-  <li class = "vertical"><a class="active" href="fullstock.php"> See full stock </a></li>
-</ul> -->
-<p><br/><br/><br/><br/></p>
+  <li class = "vertical"><a class="active3" href="modelsearch.php">By Model Id</a></li>
+  <li class = "vertical"><a href="itemsearch.php">By Item Id</a></li>
+  <li class = "vertical"><a href="fullstock.php"> See full stock </a></li>
+</ul>
+<p>Enter Model ID:</p>
 <form action="" method="post">
-  <button type="submit">See list of Receptionists at your store</button>
+  <input type="number" name="modelid" placeholder="Model Id">
+  <button type="submit">Submit</button>
 </form>
 <?php
 if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -54,20 +56,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   $store = mysqli_fetch_assoc($query_run1);
   // echo $store['storeId'];
   $Store = $store['storeId'];
-  // $item = $_POST['itemid'];
-  $query2 = "SELECT * from `Rcpts` where `storeId` = '$Store'";
+  $model = $_POST['modelid'];
+  $query2 = "SELECT * from `Item` where `modelId` = '$model' and `storeId` = '$Store'";
   $query_run2 = mysqli_query($link, $query2);
   $items = mysqli_num_rows($query_run2);
-  if($items != 0){
-    $i = 1;
-  while($data = mysqli_fetch_assoc($query_run2)){
-    $rid = $data['recId'];
-    $rname = $data['recName'];
-    echo '('.$i.') Receptionist Id: '.$rid.' ---- Receptionist Name: '.$rname;
-    $i = $i+1;
-  }
-  }
-  else{echo 'No Receptionist found';}
+  $no = $items;
+  echo '<p>No. of items with model id '.$model.' : '.$no;
 
 }
  ?>

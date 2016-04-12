@@ -31,13 +31,14 @@ else{
    <h1>Chain Store Management System</h1>
    <h3></h3>
   <ul>
-    <li><a class="active" href="index.php">Store Stock</a></li>
+    <li><a href="index.php">Owner</a></li>
+    <li><a class="active" href="modelsearch.php">Store Stock</a></li>
     <li><a href="profit.php">Profit</a></li>
     <li><a href="recep.php">Receptionists</a></li>
     <li style="float:right"><a class="active" href="../logout.php">Logout</a></li>
   </ul>
   <ul class = "vertical">
-  <li class = "vertical"><a href="index.php">By Model Id</a></li>
+  <li class = "vertical"><a href="modelsearch.php">By Model Id</a></li>
   <li class = "vertical"><a  href="itemsearch.php">By Item Id</a></li>
   <li class = "vertical"><a class="active3" href="fullstock.php"> See full stock </a></li>
 </ul>
