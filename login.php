@@ -15,7 +15,7 @@
      $user = $_POST["user"];
      $pass = $_POST["pass"];
      $hashpass = md5($pass);
-     echo $hashpass;
+    //  echo $hashpass;
      $link = mysqli_connect('localhost','pma','','chainStores');
      $usercat = $_POST["usercat"];
      if($usercat == "owner"){

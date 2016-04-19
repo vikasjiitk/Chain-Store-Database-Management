@@ -8,7 +8,7 @@ exit;
 else{
   $user = $_SESSION['loggedin'];
   $pass = $_SESSION['pass'];
-  $q = "SELECT * from `Admins` where `adminUser` = '$user' and `adminPass` = '$pass'";
+  $q = "SELECT * from `Admin` where `adminUser` = '$user' and `adminPass` = '$pass'";
   $link = mysqli_connect('localhost','pma','','chainStores');
   $run = mysqli_query($link, $q);
   $n = mysqli_num_rows($run);
@@ -53,7 +53,7 @@ if(1){
   $query = "SELECT * from `Owners`";
   $query_run = mysqli_query($link, $query);
   while($data = mysqli_fetch_assoc($query_run)){
-    echo '<p><hr><hr> Owner Details - '.$data['ownerId'].', '.$data['storeId'].', '.$data['ownerUsername'].', '.$data['ownerName'].'</p>';
+    echo '<p><hr><hr> Owner Details - Owner Id : '.$data['ownerId'].', Store Id : '.$data['storeId'].', Owner Username : '.$data['ownerUsername'].', Owner Name '.$data['ownerName'].'</p>';
   //   $store = $data['storeId'];
   //   $query2 = "SELECT * from `Owners` where `storeId` = '$store'";
   //   $query_run2 = mysqli_query($link, $query2);
